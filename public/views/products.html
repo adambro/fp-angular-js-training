@@ -1,0 +1,19 @@
+				<table class="products">
+					<tr ng-repeat-start="product in products">
+						<td id="prod-{{$index}}">{{ product.title }}</td>
+						<td>
+							<div>{{ product.price | currency }}</div>
+							<div>{{ product.stockQuantity | itemCount}}</div>
+							<div>
+								<progress-bar value="product.stockQuantity" max-value="100"></progress-bar>
+							</div>
+							<div>
+								<button ng-click="toggleDetails(product.id)">Details</button>
+							</div>
+						</td>
+					</tr>
+					<tr ng-repeat-end ng-show="areDetailsVisible(product.id)">
+						<td colspan="2" ng-include="'views/productDetails.html'">
+						</td>
+					</tr>
+				</table>

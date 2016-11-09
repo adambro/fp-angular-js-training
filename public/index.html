@@ -30,9 +30,7 @@
 						</td>
 					</tr>
 					<tr ng-repeat-end>
-						<td colspan="2">
-							<p>{{ product.description }}</p>
-							<img ng-src="images/{{product.images[0]}}" />
+						<td colspan="2" ng-include="'views/productDetails.html'">
 						</td>
 					</tr>
 				</table>

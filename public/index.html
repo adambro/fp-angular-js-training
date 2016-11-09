@@ -9,7 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body ng-app="app">
 		<div class="page">
 			<header>
 				<h1><a href="#/">Angular Store</a></h1>
@@ -17,7 +17,31 @@
 					
 				</div>
 			</header>
-			<div class="content"></div>
+			<div class="content" ng-controller="productsController">
+				<table class="products">
+					<tr ng-repeat-start="product in products">
+						<td id="prod-{{$index}}">{{ product.title }}</td>
+						<td>
+							<div>{{ product.price | currency }}</div>
+							<div>{{ product.stockQuantity | itemCount}}</div>
+							<div>
+								<progress-bar value="product.stockQuantity" max-value="100"></progress-bar>
+							</div>
+						</td>
+					</tr>
+					<tr ng-repeat-end>
+						<td colspan="2">
+							<p>{{ product.description }}</p>
+							<img ng-src="images/{{product.images[0]}}" />
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</body>
+	<script src="scripts/libs/angular.js"></script>
+	<script src="scripts/appModule.js"></script>
+	<script src="scripts/productsController.js"></script>
+	<script src="scripts/itemCountFilter.js"></script>
+	<script src="scripts/progressBar.js"></script>
 </html>

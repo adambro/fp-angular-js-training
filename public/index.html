@@ -27,9 +27,12 @@
 							<div>
 								<progress-bar value="product.stockQuantity" max-value="100"></progress-bar>
 							</div>
+							<div>
+								<button ng-click="toggleDetails(product.id)">Details</button>
+							</div>
 						</td>
 					</tr>
-					<tr ng-repeat-end>
+					<tr ng-repeat-end ng-show="areDetailsVisible(product.id)">
 						<td colspan="2" ng-include="'views/productDetails.html'">
 						</td>
 					</tr>

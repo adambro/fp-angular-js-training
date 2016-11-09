@@ -8,4 +8,16 @@ angular.module("app").controller("productsController", function($scope, $http) {
     $http.get("/products").then(function(response) {
         $scope.products = response.data;
     });
+
+    var openedRows = {};
+    $scope.toggleDetails = function(id) {
+        if (openedRows[id] === undefined) {
+            openedRows[id] = false;
+        }
+        openedRows[id] = !openedRows[id];
+    };
+
+    $scope.areDetailsVisible = function(id) {
+        return openedRows[id];
+    };
 });

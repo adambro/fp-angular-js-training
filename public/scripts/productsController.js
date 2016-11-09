@@ -1,4 +1,4 @@
-angular.module("app").controller("productsController", function($scope, $http) {
+angular.module("app").controller("productsController", function($scope, $http, shoppingCart) {
     // $scope.products = [
     //     { title: "Product 1", price: 19.95, stockQuantity: 1 },
     //     { title: "Product 2", price: 39.99, stockQuantity: 30 },
@@ -19,5 +19,9 @@ angular.module("app").controller("productsController", function($scope, $http) {
 
     $scope.areDetailsVisible = function(id) {
         return openedRows[id];
+    };
+
+    $scope.addToCart = function(product) {
+        shoppingCart.addProduct(product);
     };
 });

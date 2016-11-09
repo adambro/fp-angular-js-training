@@ -1,15 +1,16 @@
 angular.module("app").service("shoppingCart", function() {
-    var products = {};
+    var items = {};
 
     this.addProduct = function(product) {
-        products[product.id] = product;
-        if (!products[product.id].amount) {
-            products[product.id].amount = 0;
+        items[product.id] = product;
+        var item = items[product.id];
+        if (!item.amount) {
+            item.amount = 0;
         }
-        products[product.id].amount += 1;
+        item.amount += 1;
     };
 
     this.getContents = function() {
-        return products;
+        return items;
     };
 });

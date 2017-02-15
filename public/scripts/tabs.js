@@ -23,6 +23,8 @@ angular.module("app").directive("tabset", function() {
         // link: function($scope) {
         //     $scope.knownTabs = ['A', 'B', 'C'];
         // },
+        // add local scope
+        scope: true,
         // metody dostępne dla dyrektyw potomnych
         controller: function($scope) {
             $scope.knownTabs = [];

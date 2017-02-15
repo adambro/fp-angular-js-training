@@ -13,3 +13,7 @@ JSON.stringify() saves also private Angular vars, so use angular.toJson() / from
 When directive template is executed it does *replace* the HTML contents that was inside directive (example: <tabset>).
 
 For ng-class object key is class name, value is SJ expression. 
+
+## Forms
+
+Angular adds classes like `ng-touched ng-invalid` to form elements, so you can use them in CSS. Is it a good idea though?

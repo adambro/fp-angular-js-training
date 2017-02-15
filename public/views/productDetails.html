@@ -1,6 +1,8 @@
-<p>
-	{{ product.description }}
-</p>
-<p>
-	<img ng-repeat="image in product.images" ng-src="/images/{{image}}" />
-</p>
+<tabset>
+	<tab title="Description">
+		{{ product.description }}		
+	</tab>
+	<tab title="Photo">
+		<img ng-repeat="image in product.images" ng-src="/images/{{image}}" />	
+	</tab>
+</tabset>

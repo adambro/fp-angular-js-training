@@ -8,9 +8,12 @@
     <span ng-messages="orderForm.email.$error" class="validationError">
         <ng-messages-include src="errorMessges"></ng-messages-include>
     </span>
-    <textarea ng-model="customer.address" name="address" placeholder="Order address">
-
+    <textarea ng-model="customer.address" name="address" placeholder="Order address" multiline-required>
     </textarea>
+    <span ng-messages="orderForm.address.$error" class="validationError">
+        <ng-messages-include src="errorMessges"></ng-messages-include>
+        <span ng-message when="multilineRequired">Need 2 lines!</span>
+    </span>
     <button type="submit">Confirm order</button>
 </form>
 

@@ -19,3 +19,7 @@ For ng-class object key is class name, value is JS expression.
 ## Forms
 
 Angular adds classes like `ng-touched ng-invalid` to form elements, so you can use them in CSS. Is it a good idea though?
+
+Validators should pass empty values (empty string, null, undefined). To make sure field is not empty use `required` validator.
+Also often there are separate validators for view and model.
+That's the practice in Angular.

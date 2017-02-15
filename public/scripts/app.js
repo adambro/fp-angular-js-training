@@ -12,6 +12,10 @@
 			.when("/cart", {
 				templateUrl: "/views/shoppingCart.html",
 				controller: "shoppingCartController"
+			})
+			.when("/order", {
+				templateUrl: "/views/order.html",
+				controller: "orderController"
 			});
 	});
 

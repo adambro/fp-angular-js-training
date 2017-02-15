@@ -15,11 +15,9 @@
 		};
 
 		this.getItemCount = function() {
-			var count = 0;
-			for (var id in cart) {
-				count += cart[id].quantity;
-			}
-			return count;
+			return Object.keys(cart).reduce(function (previous, key) {
+				return previous + cart[key].quantity;
+			}, 0);
 		};
 
 		this.getProducts = function() {

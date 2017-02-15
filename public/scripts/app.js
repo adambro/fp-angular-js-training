@@ -16,6 +16,10 @@
 			.when("/order", {
 				templateUrl: "/views/order.html",
 				controller: "orderController"
+			})
+			.when("/order-confirmation/:orderId", {
+				templateUrl: "/views/orderConfirmation.html",
+				controller: "orderConfirmationController"
 			});
 	});
 

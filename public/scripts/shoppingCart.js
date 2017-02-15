@@ -11,7 +11,15 @@
 				cart[product.id].quantity += 1;
 			}
 
-			$rootScope.broadcast('cartUpdated');		
+			$rootScope.$broadcast('cartUpdated');		
+		};
+
+		this.getItemCount = function() {
+			var count = 0;
+			for (var id in cart) {
+				count += cart[id].quantity;
+			}
+			return count;
 		};
 
 		this.getProducts = function() {

@@ -2,13 +2,13 @@
 
 <form name="orderForm" novalidate ng-submit="placeOrder()">
     <!-- Good practice: make sure there's a dot in ng-model! -->
-    <input ng-model="customer.name" name="name" type="text" placeholder="Name" required />
+    <input ng-model="order.customer.name" name="name" type="text" placeholder="Name" required />
     <span ng-show="orderForm.name.$error.required && orderForm.name.$touched && orderForm.$submitted">This field is required!</span>
-    <input ng-model="customer.email" name="email" type="email" placeholder="Email" />
+    <input ng-model="order.customer.email" name="email" type="email" placeholder="Email" />
     <span ng-messages="orderForm.email.$error" class="validationError">
         <ng-messages-include src="errorMessges"></ng-messages-include>
     </span>
-    <textarea ng-model="customer.address" name="address" placeholder="Order address" multiline-required>
+    <textarea ng-model="order.customer.address" name="address" placeholder="Order address" multiline-required>
     </textarea>
     <span ng-messages="orderForm.address.$error" class="validationError">
         <ng-messages-include src="errorMessges"></ng-messages-include>

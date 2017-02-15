@@ -1,10 +1,12 @@
 (function(angular) {
 	"use strict";
 
-	angular.module("app").controller("orderController", function($scope, $location) {
+	angular.module("app").controller("orderController", function($scope, Order) {
+        $scope.order = new Order();
+        
         $scope.placeOrder = function() {
             if ($scope.orderForm.$valid) {
-                console.log($scope.customer);
+                $scope.order.$save();
             }
         }
     });

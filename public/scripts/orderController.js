@@ -3,7 +3,9 @@
 
 	angular.module("app").controller("orderController", function($scope, $location) {
         $scope.placeOrder = function() {
-            console.log($scope.customer);
+            if ($scope.orderForm.$valid) {
+                console.log($scope.customer);
+            }
         }
     });
 

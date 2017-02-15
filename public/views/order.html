@@ -1,6 +1,6 @@
 <h1>Order</h1>
 
-<form novalidate ng-submit="placeOrder()">
+<form name="orderForm" novalidate ng-submit="placeOrder()">
     <!-- Good practice: make sure there's a dot in ng-model! -->
     <input ng-model="customer.name" type="text" placeholder="Name" required />
     <input ng-model="customer.email" type="email" placeholder="Email" />

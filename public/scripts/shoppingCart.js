@@ -9,7 +9,9 @@
 				cart[product.id] = { product: product, quantity: 1 };
 			} else {
 				cart[product.id].quantity += 1;
-			}		
+			}
+
+			$rootScope.broadcast('cartUpdated');		
 		};
 
 		this.getProducts = function() {

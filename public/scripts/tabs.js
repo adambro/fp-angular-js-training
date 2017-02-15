@@ -16,10 +16,13 @@ angular.module("app").directive("tabset", function() {
             '<ul>' +
             '<li ng-repeat="tab in knownTabs">{{tab}}</li>' +
             '</ul>' +
+            '<div ng-transclude></div>' +
             '</div>',
-        link: function($scope) {
-            $scope.knownTabs = ['A', 'B', 'C'];
-        },
+        transclude: true,
+        // link function would replace the values, because it's executed at the end
+        // link: function($scope) {
+        //     $scope.knownTabs = ['A', 'B', 'C'];
+        // },
         // metody dostępne dla dyrektyw potomnych
         controller: function($scope) {
             $scope.knownTabs = [];

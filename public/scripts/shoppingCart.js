@@ -3,6 +3,7 @@
 
 	angular.module("app").service("shoppingCart", function($rootScope) {
 		var cart = {};
+		loadCart();
 
 		this.addProduct = function(product) {
 			if (!cart[product.id]) {
@@ -11,8 +12,24 @@
 				cart[product.id].quantity += 1;
 			}
 
-			$rootScope.$broadcast('cartUpdated');		
+			$rootScope.$broadcast('cartUpdated');
+			saveCart();		
 		};
+
+		function saveCart() {
+			var serialized = angular.toJson(cart);
+			localStorage.setItem('cart', serialized);
+		};
+
+		function loadCart() {
+			var serialized = localStorage.getItem('cart');
+			if (!serialized) {
+				cart = {};
+			}
+			else {
+				cart = angular.fromJson(serialized);
+			}
+		}
 
 		this.getItemCount = function() {
 			return Object.keys(cart).reduce(function (previous, key) {

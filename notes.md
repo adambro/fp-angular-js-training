@@ -11,3 +11,5 @@ Events are not visible in debug tools, so we create directive to see the effect.
 JSON.stringify() saves also private Angular vars, so use angular.toJson() / fromJson() instead.
 
 When directive template is executed it does *replace* the HTML contents that was inside directive (example: <tabset>).
+
+For ng-class object key is class name, value is SJ expression. 

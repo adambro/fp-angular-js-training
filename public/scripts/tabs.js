@@ -23,7 +23,8 @@ angular.module("app").directive("tabset", function() {
     return {
         template: '<div class="tabs">' +
             '<ul>' +
-            '<li ng-repeat="tab in knownTabs" ng-click="showTab(tab)">{{tab}}</li>' +
+            // For ng-class object key is class name, value is JS expression.
+            '<li ng-repeat="tab in knownTabs" ng-click="showTab(tab)" ng-class="{selected: tab == selectedTab}">{{tab}}</li>' +
             '</ul>' +
             '<div ng-transclude></div>' +
             '</div>',
@@ -31,6 +32,7 @@ angular.module("app").directive("tabset", function() {
         link: function($scope) {
             $scope.showTab = function(tabTitle) {
                 $scope.$broadcast('tabSelected', tabTitle);
+                $scope.selectedTab = tabTitle;
             }
 
             $scope.showTab($scope.knownTabs[0]);
